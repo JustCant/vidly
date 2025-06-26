@@ -7,10 +7,12 @@ const users = require('../routes/users');
 const auth = require('../routes/auth');
 const error = require('../middleware/error');
 const returns = require('../routes/returns');
+const cors = require('cors');
 const express = require('express');
 
 module.exports = function(app) {
     app.use(express.json());
+    app.use(cors());
     app.use('/', home);
     app.use('/api/customers', customers);
     app.use('/api/genres', genres);
